@@ -25,6 +25,13 @@ is not really used. It is an example of a config file from dmartinpro/RFLinkGate
 The config file wants a docker container with the name mqtt that hosts the mqtt broker and the username and password for the mqtt broker is myuser:secretpassword
 Of course, you need to change this config for your own usage.
 
+## Run
+Let's assume you've cloned repo to /home/pi/. Now you need to run your container with config and log mapped to your host filesystem and the USB port as well.
+
+```sh
+docker run -d --name=rflinkgateway -v /home/pi/RFLinkGatewayDocker:/config -v /home/pi//RFLinkGatewayDocker:/log -v /dev/ttyACM0:/dev/ttyACM0 --privileged magpern/rflinkgateway
+```
+
 ## Docker-compose
 ```sh
 docker-compose.yml
